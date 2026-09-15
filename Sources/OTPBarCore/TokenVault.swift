@@ -69,6 +69,11 @@ public struct TokenVault {
         return try TOTP.generate(for: entry, at: date)
     }
 
+    public mutating func remove(id: UUID) throws {
+        guard entries.contains(where: { $0.id == id }) else { throw OTPError.entryNotFound }
+        try save(entries.filter { $0.id != id })
+    }
+
     private mutating func save(_ next: [OTPEntry]) throws {
         let data = try JSONEncoder().encode(SavedVault(schemaVersion: 1, entries: next))
         try storage.write(data)

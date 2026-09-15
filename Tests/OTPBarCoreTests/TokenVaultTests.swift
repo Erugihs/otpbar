@@ -135,3 +135,55 @@ import Testing
     #expect(clicked.value == "287082")
     #expect(displayed.validUntil == Date(timeIntervalSince1970: 30))
 }
+
+@Test func deletionPersistsAndPreservesOtherAccounts() throws {
+    let storage = MemoryStorage()
+    var vault = try TokenVault(storage: storage)
+    try vault.importBackup(fixture("plaintext-v4"))
+    let removed = vault.entries[0].id
+    let retained = vault.entries[1]
+    try vault.remove(id: removed)
+    #expect(vault.entries == [retained])
+    #expect(try TokenVault(storage: storage).entries == [retained])
+    #expect(throws: OTPError.entryNotFound) { try vault.code(for: removed) }
+    try vault.remove(id: retained.id)
+    #expect(try TokenVault(storage: storage).entries.isEmpty)
+    let result = try vault.importBackup(fixture("plaintext-v4"))
+    #expect(result.added == 2)
+    #expect(result.skipped == 0)
+}
+
+@Test func failedOrStaleDeletionDoesNotChangeTheVault() throws {
+    let storage = MemoryStorage()
+    var vault = try TokenVault(storage: storage)
+    try vault.importBackup(fixture("plaintext-v4"))
+    let before = vault.entries
+    let bytesBefore = storage.data
+    let writesBefore = storage.writes
+    storage.failWrite = true
+    #expect(throws: TestFailure.write) { try vault.remove(id: before[0].id) }
+    #expect(vault.entries == before)
+    #expect(storage.data == bytesBefore)
+    storage.failWrite = false
+    #expect(throws: OTPError.entryNotFound) { try vault.remove(id: UUID()) }
+    #expect(storage.writes == writesBefore)
+    #expect(try TokenVault(storage: storage).entries == before)
+}
+
+@Test func matchingNamesWithDifferentSecretsAreNotDuplicates() throws {
+    let data = try modifiedBackup {
+        var services = $0["services"] as! [[String: Any]]
+        let first = services[0]
+        services[1]["name"] = first["name"]
+        services[1]["otp"] = first["otp"]
+        $0["services"] = services
+    }
+    var vault = try TokenVault(storage: MemoryStorage())
+    let firstImport = try vault.importBackup(data)
+    #expect(firstImport.added == 2)
+    #expect(firstImport.skipped == 0)
+    #expect(vault.entries[0].name == vault.entries[1].name)
+    let secondImport = try vault.importBackup(data)
+    #expect(secondImport.added == 0)
+    #expect(secondImport.skipped == 2)
+}
