@@ -5,16 +5,22 @@ import UniformTypeIdentifiers
 
 struct SettingsView: View {
     @ObservedObject var model: AppModel
+    var close: () -> Void = {}
 
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Color.clear.frame(width: 78, height: 1)
+                Color.clear.frame(width: 100, height: 1)
                 Spacer()
                 Text("OTPBar — 设置").font(.system(size: 14, weight: .medium))
                 Spacer()
-                Text("本地存储").font(.system(size: 11)).foregroundStyle(Appearance.muted)
-                    .frame(width: 78, alignment: .trailing)
+                HStack(spacing: 10) {
+                    Text("本地存储").font(.system(size: 11)).foregroundStyle(Appearance.muted)
+                    Button(action: close) {
+                        Image(systemName: "xmark").font(.system(size: 11, weight: .medium))
+                            .frame(width: 24, height: 24).contentShape(Rectangle())
+                    }.buttonStyle(.plain).accessibilityLabel("关闭设置窗口").help("关闭设置窗口（⌘W）")
+                }.frame(width: 100, alignment: .trailing)
             }.padding(.horizontal, 18).frame(height: 52).background(Appearance.sidebar)
                 .overlay(alignment: .bottom) { Appearance.line.frame(height: 1) }
         HStack(spacing: 0) {

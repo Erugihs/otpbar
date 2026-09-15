@@ -39,6 +39,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let item = NSMenuItem()
         let submenu = NSMenu()
         submenu.addItem(withTitle: "设置…", action: #selector(showSettings), keyEquivalent: ",").target = self
+        submenu.addItem(withTitle: "关闭设置窗口", action: #selector(closeSettings), keyEquivalent: "w").target = self
         submenu.addItem(.separator())
         submenu.addItem(withTitle: "退出 OTPBar", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
         item.submenu = submenu
@@ -71,7 +72,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     @objc func showSettings() {
         if window == nil {
-            let content = SettingsView(model: model)
+            let content = SettingsView(model: model, close: { [weak self] in self?.window?.performClose(nil) })
             let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 850, height: 578),
                                   styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
             window.title = "OTPBar — 设置"
@@ -79,20 +80,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             window.titlebarAppearsTransparent = true
             window.isMovableByWindowBackground = true
             window.contentView = NSHostingView(rootView: content)
-            if let contentView = window.contentView {
-                for (index, type) in [NSWindow.ButtonType.closeButton, .miniaturizeButton, .zoomButton].enumerated() {
-                    guard let button = window.standardWindowButton(type) else { continue }
-                    button.removeFromSuperview()
-                    contentView.addSubview(button)
-                    button.translatesAutoresizingMaskIntoConstraints = false
-                    NSLayoutConstraint.activate([
-                        button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: CGFloat(18 + index * 20)),
-                        button.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-                        button.widthAnchor.constraint(equalToConstant: 12),
-                        button.heightAnchor.constraint(equalToConstant: 12)
-                    ])
-                }
-            }
             window.minSize = NSSize(width: 700, height: 578)
             window.isReleasedWhenClosed = false
             window.delegate = self
@@ -103,6 +90,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         NSApp.activate(ignoringOtherApps: true)
         window?.makeKeyAndOrderFront(nil)
     }
+
+    @objc private func closeSettings() { window?.performClose(nil) }
 
     func windowShouldClose(_ sender: NSWindow) -> Bool {
         if model.isEditing {
