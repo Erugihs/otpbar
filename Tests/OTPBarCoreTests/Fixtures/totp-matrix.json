@@ -1,0 +1,2018 @@
+[
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 0,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 10,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "98914"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "54266"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 0,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 30,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "05924"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "53130"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 0,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 60,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "13351"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "48864"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 0,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "55224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 90,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "87082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "97475"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "27384"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 0,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 10,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "398914"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "054266"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 0,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 30,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "005924"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "353130"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 0,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 60,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "713351"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "948864"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 0,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 90,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "197475"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "127384"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 0,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 10,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "1398914"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "1054266"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 0,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 30,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "9005924"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "5353130"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 0,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 60,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "5713351"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "2948864"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 0,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "4755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 90,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "4287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "4197475"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "5127384"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 0,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 10,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "31398914"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "21054266"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 0,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 30,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "89005924"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "65353130"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 0,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 60,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "55713351"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "52948864"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 0,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "84755224"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 90,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "94287082"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "44197475"
+  },
+  {
+    "algorithm": "SHA1",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "45127384"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 0,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 10,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "18745"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "11973"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 0,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 30,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "29826"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "42410"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 0,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 60,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "46158"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "20255"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 0,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "75740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 90,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "47374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "67750"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "48986"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 0,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 10,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "318745"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "411973"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 0,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 30,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "829826"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "142410"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 0,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 60,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "246158"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "520255"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 0,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 90,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "167750"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "348986"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 0,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 10,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "6318745"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "1411973"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 0,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 30,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "2829826"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "4142410"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 0,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 60,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "0246158"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "9520255"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 0,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "4875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 90,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "2247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "9167750"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "0348986"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 0,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 10,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "66318745"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "01411973"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 0,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 30,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "42829826"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "24142410"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 0,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 60,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "30246158"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "19520255"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 0,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "74875740"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 90,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "32247374"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "19167750"
+  },
+  {
+    "algorithm": "SHA256",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "70348986"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 0,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 10,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "72266"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "32415"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 0,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 30,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "71578"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "81994"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 0,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 60,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "95423"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "51942"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 0,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "25165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 90,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "42147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "94332"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 5,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "07694"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 0,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 10,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "872266"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "832415"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 0,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 30,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "671578"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "481994"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 0,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 60,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "895423"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "751942"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 0,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 90,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "794332"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 6,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "807694"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 0,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 10,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "3872266"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "7832415"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 0,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 30,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "6671578"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "9481994"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 0,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 60,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "6895423"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "9751942"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 0,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "4125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 90,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "9342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "9794332"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 7,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "9807694"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 0,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 9.999,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 10,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 10.001,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 1234567890,
+    "code": "73872266"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 10,
+    "timestamp": 20000000000,
+    "code": "87832415"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 0,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 29.999,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 30,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 30.001,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 1234567890,
+    "code": "76671578"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 30,
+    "timestamp": 20000000000,
+    "code": "69481994"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 0,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 59.999,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 60,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 60.001,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 1234567890,
+    "code": "86895423"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 60,
+    "timestamp": 20000000000,
+    "code": "69751942"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 0,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 89.999,
+    "code": "04125165"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 90,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 90.001,
+    "code": "69342147"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 1234567890,
+    "code": "89794332"
+  },
+  {
+    "algorithm": "SHA512",
+    "digits": 8,
+    "period": 90,
+    "timestamp": 20000000000,
+    "code": "39807694"
+  }
+]

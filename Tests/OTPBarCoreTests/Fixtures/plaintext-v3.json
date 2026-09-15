@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 3,
+  "appOrigin": "android",
+  "appVersionName": "test-only",
+  "services": [
+    {
+      "name": "Example second",
+      "secret": "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQGEZA",
+      "otp": {
+        "account": "second@example.invalid",
+        "tokenType": "TOTP",
+        "algorithm": "SHA256",
+        "digits": 8,
+        "period": 60
+      },
+      "order": {
+        "position": 1
+      },
+      "updatedAt": 0,
+      "unknownFutureField": {
+        "keep": true
+      }
+    },
+    {
+      "name": "Example first",
+      "secret": "GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ",
+      "otp": {
+        "account": "first@example.invalid",
+        "tokenType": "TOTP",
+        "algorithm": "SHA1",
+        "digits": 6,
+        "period": 30
+      },
+      "order": {
+        "position": 0
+      },
+      "updatedAt": 0
+    }
+  ],
+  "groups": [],
+  "unknownRootField": [
+    "never rewrite this source"
+  ]
+}
