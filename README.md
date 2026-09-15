@@ -7,5 +7,6 @@
 - [初版需求、技术选择与验收进度](https://github.com/Erugihs/otpbar/issues/1)
 - [后续事项：CLI 取码](https://github.com/Erugihs/otpbar/issues/2)
 - [开发环境](docs/development.md)
+- [图标资源](assets/icon/)
 
 需求、设计决定与进度以对应 Issue 为准。
