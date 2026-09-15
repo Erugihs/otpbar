@@ -31,7 +31,21 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 本机开发和运行不需要付费 Apple Developer Program。应用可使用本地临时签名（ad hoc）；发布到 App Store、Developer ID 签名和公证属于另一套分发流程。
 
-## 核心测试
+## 构建应用
+
+```sh
+bash scripts/build-app.sh
+```
+
+生成 `.build/app/OTPBar.app`，包含菜单栏模板图标与应用图标，并执行 ad hoc 签名和签名检查。构建默认使用 Release；调试时可运行 `CONFIGURATION=debug bash scripts/build-app.sh`。
+
+如果完整 Xcode 尚未完成首次启动配置，可临时使用已安装的 CLT，不必改变系统默认工具链：
+
+```sh
+DEVELOPER_DIR=/Library/Developer/CommandLineTools bash scripts/build-app.sh
+```
+
+## 测试
 
 在仓库根目录运行：
 
@@ -39,7 +53,7 @@ export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 swift test -Xswiftc -warnings-as-errors
 ```
 
-默认使用内存存储，不访问真实验证码。测试覆盖 RFC 6238、RFC 4648、独立生成的 TOTP 参数组合、2FAS 解密、错误输入、重复导入和保存失败。需要实际验证本机钥匙串时运行：
+默认使用内存存储，不访问真实验证码。应用层剪贴板测试使用独立命名的临时剪贴板，不覆盖用户系统剪贴板。测试覆盖 RFC 6238、RFC 4648、独立生成的 TOTP 参数组合、2FAS 解密、错误输入、重复导入、删除、保存失败、复制时使用最新数据和清理时保留他方写入。需要实际验证本机钥匙串时运行：
 
 ```sh
 OTPBAR_KEYCHAIN_TEST=1 swift test -Xswiftc -warnings-as-errors
