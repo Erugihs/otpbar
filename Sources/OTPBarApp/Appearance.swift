@@ -28,10 +28,10 @@ struct CompactButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .font(.system(size: 13))
-            .padding(.horizontal, 12).frame(minHeight: 28)
+            .font(.system(size: 14, weight: .regular))
+            .padding(.horizontal, 12).frame(minHeight: 32)
             .foregroundStyle(primary ? Color.white : destructive ? Appearance.danger : Appearance.text)
-            .background(primary ? Color(red: 0.027, green: 0.396, blue: 0.812) : Appearance.field,
+            .background(primary ? (destructive ? Color(red: 0.74, green: 0.17, blue: 0.14) : Color(red: 0.027, green: 0.396, blue: 0.812)) : destructive ? Color.clear : Appearance.field,
                         in: RoundedRectangle(cornerRadius: 6))
             .overlay(RoundedRectangle(cornerRadius: 6).stroke(primary ? Color.clear : Appearance.line))
             .opacity(enabled ? (configuration.isPressed ? 0.7 : 1) : 0.45)

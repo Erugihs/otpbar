@@ -15,12 +15,11 @@ struct OTPBarApp {
 }
 
 @MainActor
-final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSWindowDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private let model = AppModel()
     private var statusItem: NSStatusItem!
     private var window: NSWindow?
-    private var menuTimer: Timer?
-    private var codeItems: [(NSMenuItem, OTPEntry)] = []
+    private let popover = NSPopover()
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -55,83 +54,46 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSWind
     }
 
     @objc private func statusClicked() {
-        let menu = NSMenu()
-        menu.autoenablesItems = false
-        menu.delegate = self
-        codeItems = []
-        let secondaryClick = NSApp.currentEvent?.type == .rightMouseUp || NSApp.currentEvent?.modifierFlags.contains(.control) == true
-        if !secondaryClick {
-            if model.loadError != nil {
-                let item = menu.addItem(withTitle: "无法读取本地数据，请打开设置", action: nil, keyEquivalent: "")
-                item.isEnabled = false
-            } else if model.entries.isEmpty {
-                let item = menu.addItem(withTitle: "还没有验证码，请在设置中导入备份", action: nil, keyEquivalent: "")
-                item.isEnabled = false
-            }
-            for entry in model.entries {
-                let item = NSMenuItem(title: entry.name, action: #selector(copyCode(_:)), keyEquivalent: "")
-                item.target = self
-                item.representedObject = entry.id
-                menu.addItem(item)
-                codeItems.append((item, entry))
-            }
-            refreshMenu()
-            menu.addItem(.separator())
-        }
-        menu.addItem(withTitle: "设置…", action: #selector(showSettings), keyEquivalent: ",").target = self
-        menu.addItem(withTitle: "退出 OTPBar", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
-        statusItem.menu = menu
-        statusItem.button?.performClick(nil)
-    }
-
-    func menuWillOpen(_ menu: NSMenu) {
-        guard !codeItems.isEmpty else { return }
-        let timer = Timer(timeInterval: 0.25, repeats: true) { [weak self] _ in
-            MainActor.assumeIsolated { self?.refreshMenu() }
-        }
-        RunLoop.main.add(timer, forMode: .eventTracking)
-        menuTimer = timer
-    }
-
-    func menuDidClose(_ menu: NSMenu) {
-        menuTimer?.invalidate()
-        menuTimer = nil
-        statusItem.menu = nil
-        codeItems = []
-    }
-
-    private func refreshMenu() {
-        let now = Date()
-        for (item, entry) in codeItems {
-            let heading = entry.account.isEmpty ? entry.name : "\(entry.name) · \(entry.account)"
-            let title = NSMutableAttributedString(string: heading + "\n", attributes: [.font: NSFont.systemFont(ofSize: 12)])
-            if let code = try? TOTP.generate(for: entry, at: now) {
-                let remaining = max(0, Int(ceil(code.validUntil.timeIntervalSince(now))))
-                title.append(NSAttributedString(string: "\(groupedCode(code.value))  ·  \(remaining) 秒", attributes: [.font: NSFont.monospacedDigitSystemFont(ofSize: 16, weight: .medium)]))
-                item.isEnabled = true
-            } else {
-                title.append(NSAttributedString(string: "系统时间无效"))
-                item.isEnabled = false
-            }
-            item.attributedTitle = title
-        }
-    }
-
-    @objc private func copyCode(_ sender: NSMenuItem) {
-        guard let id = sender.representedObject as? UUID, let entry = model.entries.first(where: { $0.id == id }) else { return }
-        model.copy(entry)
+        if popover.isShown { popover.performClose(nil); return }
+        guard let button = statusItem.button else { return }
+        let secondary = NSApp.currentEvent?.type == .rightMouseUp || NSApp.currentEvent?.modifierFlags.contains(.control) == true
+        popover.behavior = .transient
+        popover.animates = false
+        popover.contentViewController = NSHostingController(rootView: CodeMenuView(
+            model: model, contextOnly: secondary,
+            close: { [weak self] in self?.popover.performClose(nil) },
+            settings: { [weak self] in self?.showSettings() },
+            quit: { NSApp.terminate(nil) }
+        ))
+        if let content = popover.contentViewController { popover.contentSize = content.view.fittingSize }
+        popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
     }
 
     @objc func showSettings() {
         if window == nil {
             let content = SettingsView(model: model)
-            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 850, height: 520),
-                                  styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
+            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 850, height: 578),
+                                  styleMask: [.titled, .closable, .miniaturizable, .resizable, .fullSizeContentView], backing: .buffered, defer: false)
             window.title = "OTPBar — 设置"
-            window.toolbar = NSToolbar(identifier: "OTPBarSettingsToolbar")
-            window.toolbarStyle = .unifiedCompact
+            window.titleVisibility = .hidden
+            window.titlebarAppearsTransparent = true
+            window.isMovableByWindowBackground = true
             window.contentView = NSHostingView(rootView: content)
-            window.minSize = NSSize(width: 700, height: 550)
+            if let contentView = window.contentView {
+                for (index, type) in [NSWindow.ButtonType.closeButton, .miniaturizeButton, .zoomButton].enumerated() {
+                    guard let button = window.standardWindowButton(type) else { continue }
+                    button.removeFromSuperview()
+                    contentView.addSubview(button)
+                    button.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        button.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: CGFloat(18 + index * 20)),
+                        button.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+                        button.widthAnchor.constraint(equalToConstant: 12),
+                        button.heightAnchor.constraint(equalToConstant: 12)
+                    ])
+                }
+            }
+            window.minSize = NSSize(width: 700, height: 578)
             window.isReleasedWhenClosed = false
             window.delegate = self
             window.center()

@@ -9,6 +9,7 @@ final class AppModel: ObservableObject {
     @Published var selectedID: UUID?
     @Published var isEditing = false
     @Published var importVisible = false
+    @Published var deletingEntry: OTPEntry?
     @Published var message: String?
     private var vault: TokenVault?
     private var clipboardTimer: Timer?
