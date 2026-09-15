@@ -15,7 +15,7 @@ struct SettingsView: View {
                 Spacer()
                 Text("本地存储").font(.system(size: 11)).foregroundStyle(Appearance.muted)
                     .frame(width: 78, alignment: .trailing)
-            }.padding(.horizontal, 18).frame(height: 51).background(Appearance.sidebar)
+            }.padding(.horizontal, 18).frame(height: 52).background(Appearance.sidebar)
                 .overlay(alignment: .bottom) { Appearance.line.frame(height: 1) }
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
@@ -106,6 +106,7 @@ private struct EntryDetail: View {
     @State private var digits = 6
     @State private var period = 30
     @State private var revealSecret = false
+    @State private var parametersExpanded = false
     @State private var error: String?
 
     var body: some View {
@@ -118,7 +119,7 @@ private struct EntryDetail: View {
                     }
                     Spacer()
                     if !model.isEditing { Button("编辑") { resetFields(); model.isEditing = true; model.message = nil } }
-                }.frame(height: 45, alignment: .top).padding(.bottom, 18)
+                }.frame(height: 45.4, alignment: .top).padding(.bottom, 18)
                 TimelineView(.periodic(from: .now, by: 1)) { context in
                     HStack {
                         VStack(alignment: .leading, spacing: 3) {
@@ -134,7 +135,7 @@ private struct EntryDetail: View {
                                     .font(.system(size: 11)).foregroundStyle(Appearance.muted).monospacedDigit()
                             }
                         }
-                    }.padding(.horizontal, 16).frame(height: 83).background(Appearance.field, in: RoundedRectangle(cornerRadius: 8))
+                    }.padding(.horizontal, 16).frame(height: 83.25).background(Appearance.field, in: RoundedRectangle(cornerRadius: 8))
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Appearance.line))
                 }.padding(.bottom, 22)
                 VStack(alignment: .leading, spacing: 0) {
@@ -165,7 +166,15 @@ private struct EntryDetail: View {
                     }
                     }.background(Appearance.field, in: RoundedRectangle(cornerRadius: 8))
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Appearance.line))
-                    DisclosureGroup("生成参数") {
+                    VStack(alignment: .leading, spacing: 0) {
+                        Button { parametersExpanded.toggle() } label: {
+                            HStack(spacing: 4) {
+                                Image(systemName: "triangle.fill").font(.system(size: 7))
+                                    .rotationEffect(.degrees(parametersExpanded ? 180 : 90))
+                                Text("生成参数")
+                            }.frame(height: 17.4)
+                        }.buttonStyle(.plain).accessibilityValue(parametersExpanded ? "已展开" : "已折叠")
+                        if parametersExpanded {
                         HStack(spacing: 10) {
                             VStack(alignment: .leading, spacing: 7) {
                                 Text("算法")
@@ -180,6 +189,7 @@ private struct EntryDetail: View {
                                 Picker("刷新周期", selection: $period) { ForEach([10, 30, 60, 90], id: \.self) { Text("\($0) 秒").tag($0) } }.labelsHidden().frame(maxWidth: .infinity)
                             }.frame(maxWidth: .infinity, alignment: .leading)
                         }.disabled(!model.isEditing).padding(.top, 12)
+                        }
                     }.font(.system(size: 12)).foregroundStyle(Appearance.muted).padding(.top, 14).padding(.bottom, 10)
                 }.textFieldStyle(.plain)
                 if let error { Text(error).foregroundStyle(.red).font(.callout) }
