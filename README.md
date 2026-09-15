@@ -1,5 +1,7 @@
 # OTPBar
 
+<img src="assets/icon/otpbar-app.png" width="128" alt="OTPBar 应用图标">
+
 面向 macOS 的菜单栏动态码工具项目，让用户在 Mac 上查看、复制手机认证器中的动态码。
 
 ## 项目入口
