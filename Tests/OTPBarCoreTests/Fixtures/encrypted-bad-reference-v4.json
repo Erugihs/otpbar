@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 4,
+  "appOrigin": "ios",
+  "appVersionName": "test-only",
+  "services": [],
+  "groups": [],
+  "unknownRootField": [
+    "never rewrite this source"
+  ],
+  "servicesEncrypted": "BnXZt4edUTYC9D+1eOu8KoIfIrkQk25fI/GeRFuKw6VyBl7qkfLjyZ9SBQxFMrJ+L+w4w+b8D7xGeRpLuNt7foeq0uPlEbbv95XOeUdYFdYMmS1lP3s94FooY3eUDrKw0Q8aIvJb+EiwRrMmpxTw1t/xivfSCmT8opRfBNxYxWool2z/Gyj8/1zdjXZWxCI9UKCajKWfqtuWmzjj9ZeiNIi7YqfCQEt4b7JW0PdgVxKOC9AOgOdF6YzY1ev8B9c3LtU0QnDTKmPNtbY0fml2i7oaAbWOSh+N5LDD+QIljrPPI7f3+WHNCINy16RC8haLodtjOMpEKriVE4RnjgIo2j9u25pAa/l36cF7/RTaWaPxL8Lw51PaB2iP7ujuuka/TzKp9o+mmhjDjeW5qDGJsbJKFbj8pK9l6yv4iudwFna04d5HO6uC+XXL+ohVPJjwI4DOLnLYxhMCAe3/gqBvt560+WmTV78p2TAu4fSdDWG3pzo7uw5v2qvTkKwma3QNVPZaPrlNKJWlneGtdN0S2VbXUhBA8bxko8NfS8vEfMj26DfVDuaRUMK+NbAR2RUDqybGuxIMFk1C68/4N8UPu6BixPRMrD5WtzQzs9BuBEU0jo5uUgEefxeRMdpw94f36MY5uWyv2BiXAIXQ5ok=:AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=:AQEBAQEBAQEBAQEB",
+  "reference": "R9N3IbusHaLH9fFVmWf5+VvFbZywN+i/70iTszBFrPATYA8QiHjK:AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=:AgICAgICAgICAgIC"
+}
