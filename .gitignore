@@ -1,0 +1,12 @@
+# macOS and Swift build artifacts
+.DS_Store
+.build/
+.swiftpm/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# Local data and authenticator backups
+docs/local/
+CLAUDE.local.md
+*.2fas
