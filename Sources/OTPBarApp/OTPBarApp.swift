@@ -125,9 +125,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSWind
     @objc func showSettings() {
         if window == nil {
             let content = SettingsView(model: model)
-            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 820, height: 570),
+            let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 850, height: 520),
                                   styleMask: [.titled, .closable, .miniaturizable, .resizable], backing: .buffered, defer: false)
             window.title = "OTPBar — 设置"
+            window.toolbar = NSToolbar(identifier: "OTPBarSettingsToolbar")
+            window.toolbarStyle = .unifiedCompact
             window.contentView = NSHostingView(rootView: content)
             window.minSize = NSSize(width: 700, height: 550)
             window.isReleasedWhenClosed = false

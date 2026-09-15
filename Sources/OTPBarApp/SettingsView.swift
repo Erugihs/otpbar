@@ -8,28 +8,35 @@ struct SettingsView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("验证码  \(model.entries.count)").font(.caption).foregroundStyle(.secondary).padding(.horizontal)
-                List(selection: Binding(get: { model.selectedID }, set: { id in
-                    if model.isEditing { model.message = "请先保存或取消当前修改。" }
-                    else if let id { model.selectedID = id; model.message = nil }
-                })) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("验证码  \(model.entries.count)").font(.system(size: 12, weight: .medium)).foregroundStyle(Appearance.muted).padding(.horizontal, 20).padding(.bottom, 14)
+                ScrollView {
+                  VStack(spacing: 5) {
                     ForEach(model.entries) { entry in
+                      Button {
+                        if model.isEditing { model.message = "请先保存或取消当前修改。" }
+                        else { model.selectedID = entry.id; model.message = nil }
+                      } label: {
                         HStack(spacing: 9) {
                             Text(String(entry.name.prefix(1)).uppercased())
                                 .fontWeight(.medium).frame(width: 29, height: 29)
-                                .background(.quaternary, in: RoundedRectangle(cornerRadius: 6))
+                                .background(Appearance.field, in: RoundedRectangle(cornerRadius: 6))
+                                .overlay(RoundedRectangle(cornerRadius: 6).stroke(Appearance.line))
                             VStack(alignment: .leading, spacing: 3) {
-                                Text(entry.name).lineLimit(1)
-                                if !entry.account.isEmpty { Text(entry.account).font(.caption).foregroundStyle(.secondary).lineLimit(1) }
+                                Text(entry.name).font(.system(size: 13, weight: .medium)).lineLimit(1)
+                                if !entry.account.isEmpty { Text(entry.account).font(.system(size: 11)).foregroundStyle(Appearance.muted).lineLimit(1) }
                             }
-                        }.padding(.vertical, 3).tag(entry.id)
+                            Spacer(minLength: 0)
+                        }.padding(10).frame(maxWidth: .infinity, alignment: .leading)
+                          .background(model.selectedID == entry.id ? Appearance.selected : Color.clear, in: RoundedRectangle(cornerRadius: 7))
+                      }.buttonStyle(.plain).accessibilityAddTraits(model.selectedID == entry.id ? .isSelected : [])
                     }
-                }.listStyle(.sidebar)
+                  }.padding(.horizontal, 10)
+                }
                 Button { model.importVisible = true } label: {
                     Label("导入备份…", systemImage: "square.and.arrow.down").frame(maxWidth: .infinity)
-                }.disabled(model.isEditing || model.loadError != nil).padding([.horizontal, .bottom])
-            }.padding(.top, 20).frame(width: 215).background(.bar)
+                }.disabled(model.isEditing || model.loadError != nil).padding(12)
+            }.padding(.top, 20).frame(width: 211).background(Appearance.sidebar)
             Divider()
             VStack(spacing: 0) {
                 if let error = model.loadError {
@@ -38,10 +45,10 @@ struct SettingsView: View {
                     EntryDetail(model: model, entry: entry).id(entry.id)
                 } else {
                     VStack(spacing: 14) {
-                        Image(systemName: "key.horizontal").font(.system(size: 36)).foregroundStyle(.secondary)
-                        Text("还没有验证码").font(.title2)
-                        Text("导入手机上的 2FAS 备份，即可在 Mac 上查看和复制。").foregroundStyle(.secondary).multilineTextAlignment(.center)
-                        Button("导入备份…") { model.importVisible = true }.buttonStyle(.borderedProminent)
+                        Text("还没有验证码").font(.system(size: 18, weight: .medium))
+                        Text("导入手机上的 2FAS 备份，即可在 Mac 上查看和复制。")
+                            .foregroundStyle(Appearance.muted).multilineTextAlignment(.center).frame(maxWidth: 270)
+                        Button("导入备份…") { model.importVisible = true }.buttonStyle(CompactButtonStyle(primary: true))
                     }.padding(30).frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
                 if let message = model.message {
@@ -51,10 +58,12 @@ struct SettingsView: View {
                         Spacer()
                         Button { model.message = nil } label: { Image(systemName: "xmark") }
                             .buttonStyle(.plain).accessibilityLabel("关闭提示")
-                    }.padding(12).background(.bar)
+                    }.padding(12).background(Appearance.sidebar)
                 }
             }.frame(maxWidth: .infinity, maxHeight: .infinity)
         }
+        .font(.system(size: 13)).foregroundStyle(Appearance.text)
+        .background(Appearance.surface).buttonStyle(CompactButtonStyle())
         .sheet(isPresented: $model.importVisible) { ImportView(model: model) }
     }
 }
@@ -74,10 +83,10 @@ private struct EntryDetail: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 22) {
+            VStack(alignment: .leading, spacing: 20) {
                 HStack {
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(entry.name).font(.title2).fontWeight(.medium)
+                        Text(entry.name).font(.system(size: 20, weight: .medium))
                         Text("基于时间的动态验证码").font(.caption).foregroundStyle(.secondary)
                     }
                     Spacer()
@@ -88,7 +97,7 @@ private struct EntryDetail: View {
                         VStack(alignment: .leading, spacing: 5) {
                             Text("当前验证码").font(.caption).foregroundStyle(.secondary)
                             Text((try? TOTP.generate(for: entry, at: context.date)).map { groupedCode($0.value) } ?? "时间无效")
-                                .font(.system(size: 28, weight: .medium, design: .monospaced)).monospacedDigit()
+                                .font(.system(size: 25, weight: .medium, design: .monospaced)).monospacedDigit().tracking(1.4)
                         }
                         Spacer()
                         VStack(alignment: .trailing, spacing: 8) {
@@ -98,21 +107,37 @@ private struct EntryDetail: View {
                                     .font(.caption).foregroundStyle(.secondary).monospacedDigit()
                             }
                         }
-                    }.padding(16).background(.background, in: RoundedRectangle(cornerRadius: 9))
-                        .overlay(RoundedRectangle(cornerRadius: 9).stroke(.quaternary))
+                    }.padding(.horizontal, 16).padding(.vertical, 13).background(Appearance.field, in: RoundedRectangle(cornerRadius: 8))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Appearance.line))
                 }
                 VStack(alignment: .leading, spacing: 14) {
                     Text("账号信息").font(.caption).foregroundStyle(.secondary)
-                    LabeledContent("名称") { TextField("名称", text: $name).disabled(!model.isEditing) }
-                    LabeledContent("账号") { TextField("账号", text: $account).disabled(!model.isEditing) }
-                    LabeledContent("密钥") {
+                    VStack(spacing: 0) {
+                    infoRow("名称") {
+                        if model.isEditing { TextField("名称", text: $name) }
+                        else { Text(name).frame(maxWidth: .infinity, alignment: .leading).textSelection(.enabled) }
+                    }
+                    Divider()
+                    infoRow("账号") {
+                        if model.isEditing { TextField("账号", text: $account) }
+                        else { Text(account.isEmpty ? "—" : account).frame(maxWidth: .infinity, alignment: .leading).textSelection(.enabled) }
+                    }
+                    Divider()
+                    infoRow("密钥") {
                         HStack {
-                            if revealSecret { TextField("密钥", text: $secret).disabled(!model.isEditing) }
-                            else { SecureField("密钥", text: $secret).disabled(!model.isEditing) }
+                            if model.isEditing {
+                                if revealSecret { TextField("密钥", text: $secret) }
+                                else { SecureField("密钥", text: $secret) }
+                            } else {
+                                Text(revealSecret ? secret : "••••••••••••••••").lineLimit(1)
+                                    .frame(maxWidth: .infinity, alignment: .leading).textSelection(.enabled)
+                            }
                             Button { revealSecret.toggle() } label: { Image(systemName: revealSecret ? "eye.slash" : "eye") }
                                 .buttonStyle(.plain).accessibilityLabel(revealSecret ? "隐藏密钥" : "显示密钥")
                         }
                     }
+                    }.background(Appearance.field, in: RoundedRectangle(cornerRadius: 8))
+                        .overlay(RoundedRectangle(cornerRadius: 8).stroke(Appearance.line))
                     DisclosureGroup("生成参数") {
                         VStack(spacing: 12) {
                             Picker("算法", selection: $algorithm) { ForEach(OTPAlgorithm.allCases, id: \.self) { Text($0.rawValue).tag($0) } }
@@ -120,18 +145,18 @@ private struct EntryDetail: View {
                             Picker("刷新周期", selection: $period) { ForEach([10, 30, 60, 90], id: \.self) { Text("\($0) 秒").tag($0) } }
                         }.disabled(!model.isEditing).padding(.top, 12)
                     }.padding(.top, 4)
-                }.textFieldStyle(.roundedBorder)
+                }.textFieldStyle(.plain)
                 if let error { Text(error).foregroundStyle(.red).font(.callout) }
                 Text("修改仅保存在这台 Mac，不会更改手机上的账号。").font(.caption).foregroundStyle(.secondary)
                 if model.isEditing {
                     HStack {
                         Spacer()
                         Button("取消") { model.isEditing = false; resetFields() }.keyboardShortcut(.cancelAction)
-                        Button("保存修改", action: save).buttonStyle(.borderedProminent).keyboardShortcut(.defaultAction)
+                        Button("保存修改", action: save).buttonStyle(CompactButtonStyle(primary: true)).keyboardShortcut(.defaultAction)
                     }
                 } else {
                     Divider()
-                    Button("删除账号…", role: .destructive) { confirmingDelete = true }
+                    Button("删除账号…", role: .destructive) { confirmingDelete = true }.buttonStyle(CompactButtonStyle(destructive: true))
                 }
             }.padding(28)
         }
@@ -151,6 +176,13 @@ private struct EntryDetail: View {
         name = entry.name; account = entry.account; secret = entry.secret
         algorithm = entry.algorithm; digits = entry.digits; period = entry.period
         revealSecret = false; error = nil
+    }
+
+    private func infoRow<Content: View>(_ title: String, @ViewBuilder content: () -> Content) -> some View {
+        HStack(spacing: 12) {
+            Text(title).font(.system(size: 12)).foregroundStyle(Appearance.muted).frame(width: 71, alignment: .leading)
+            content()
+        }.padding(.horizontal, 13).frame(minHeight: 44)
     }
 
     private func save() {
@@ -185,10 +217,12 @@ private struct ImportView: View {
             HStack {
                 Spacer()
                 Button("取消") { dismiss() }.keyboardShortcut(.cancelAction)
-                Button("导入", action: importBackup).buttonStyle(.borderedProminent)
+                Button("导入", action: importBackup).buttonStyle(CompactButtonStyle(primary: true))
                     .keyboardShortcut(.defaultAction).disabled(data == nil)
             }
-        }.padding(28).frame(width: 430).onDisappear { data = nil; password = "" }
+        }.padding(26).frame(width: 410).font(.system(size: 13))
+            .foregroundStyle(Appearance.text).background(Appearance.surface)
+            .buttonStyle(CompactButtonStyle()).onDisappear { data = nil; password = "" }
     }
 
     private func chooseFile() {
