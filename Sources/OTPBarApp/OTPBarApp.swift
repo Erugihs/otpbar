@@ -15,11 +15,13 @@ struct OTPBarApp {
 }
 
 @MainActor
-final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate, NSPopoverDelegate {
     private let model = AppModel()
     private var statusItem: NSStatusItem!
     private var window: NSWindow?
     private let popover = NSPopover()
+    private var outsideClickMonitor: Any?
+    private var localClickMonitor: Any?
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -58,6 +60,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         if popover.isShown { popover.performClose(nil); return }
         guard let button = statusItem.button else { return }
         let secondary = NSApp.currentEvent?.type == .rightMouseUp || NSApp.currentEvent?.modifierFlags.contains(.control) == true
+        popover.delegate = self
         popover.behavior = .transient
         popover.animates = false
         popover.contentViewController = NSHostingController(rootView: CodeMenuView(
@@ -68,6 +71,38 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         ))
         if let content = popover.contentViewController { popover.contentSize = content.view.fittingSize }
         popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+        startDismissMonitoring()
+    }
+
+    private func startDismissMonitoring() {
+        stopDismissMonitoring()
+        // A menu-bar app may remain inactive while its popover is visible.
+        // Observe both other apps and our own windows; never consume their clicks.
+        outsideClickMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] _ in
+            MainActor.assumeIsolated { self?.popover.performClose(nil) }
+        }
+        localClickMonitor = NSEvent.addLocalMonitorForEvents(matching: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [weak self] event in
+            MainActor.assumeIsolated {
+                guard let self, self.popover.isShown else { return }
+                // The status button handles its own toggle on mouse-up.
+                if event.window !== self.popover.contentViewController?.view.window,
+                   event.window !== self.statusItem.button?.window {
+                    self.popover.performClose(nil)
+                }
+            }
+            return event
+        }
+    }
+
+    private func stopDismissMonitoring() {
+        if let outsideClickMonitor { NSEvent.removeMonitor(outsideClickMonitor) }
+        if let localClickMonitor { NSEvent.removeMonitor(localClickMonitor) }
+        outsideClickMonitor = nil
+        localClickMonitor = nil
+    }
+
+    func popoverDidClose(_ notification: Notification) {
+        stopDismissMonitoring()
     }
 
     @objc func showSettings() {
@@ -111,7 +146,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
         return .terminateNow
     }
-    func applicationWillTerminate(_ notification: Notification) { model.clearCopiedCode() }
+    func applicationWillTerminate(_ notification: Notification) {
+        stopDismissMonitoring()
+        model.clearCopiedCode()
+    }
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         showSettings()
         return true
