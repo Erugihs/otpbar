@@ -2,6 +2,54 @@ import Foundation
 import Testing
 @testable import OTPBarCore
 
+@Test func legacyAccountsDefaultToVisibleWithoutRewritingStorage() throws {
+    let storage = MemoryStorage()
+    storage.data = Data("""
+    {"schemaVersion":1,"entries":[{"id":"11111111-1111-1111-1111-111111111111","name":"Legacy","account":"test@example.invalid","secret":"GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ","algorithm":"SHA1","digits":6,"period":30}]}
+    """.utf8)
+    let before = storage.data
+    let vault = try TokenVault(storage: storage)
+    #expect(vault.entries[0].isVisibleInMenu)
+    #expect(storage.data == before)
+    #expect(storage.writes == 0)
+}
+
+@Test func visibilityPersistsWithoutChangingCodesOrDuplicateImportPreferences() throws {
+    let storage = MemoryStorage()
+    var vault = try TokenVault(storage: storage)
+    try vault.importBackup(fixture("plaintext-v4"))
+    #expect(vault.entries.allSatisfy { $0.isVisibleInMenu })
+    let original = vault.entries
+    let date = Date(timeIntervalSince1970: 59)
+    let code = try vault.code(for: original[0].id, at: date)
+    try vault.setMenuVisibility(id: original[0].id, visible: false)
+    #expect(!vault.entries[0].isVisibleInMenu)
+    #expect(vault.entries[1] == original[1])
+    #expect(try vault.code(for: original[0].id, at: date).value == code.value)
+    let result = try vault.importBackup(fixture("plaintext-v4"))
+    #expect(result.added == 0)
+    #expect(!vault.entries[0].isVisibleInMenu)
+    var reopened = try TokenVault(storage: storage)
+    #expect(reopened.entries == vault.entries)
+    try reopened.setMenuVisibility(id: original[0].id, visible: true)
+    #expect(try TokenVault(storage: storage).entries == original)
+}
+
+@Test func failedVisibilityWriteKeepsMemoryAndStorageIntact() throws {
+    let storage = MemoryStorage()
+    var vault = try TokenVault(storage: storage)
+    try vault.importBackup(fixture("plaintext-v4"))
+    let original = vault.entries
+    let bytes = storage.data
+    storage.failWrite = true
+    #expect(throws: TestFailure.write) { try vault.setMenuVisibility(id: original[0].id, visible: false) }
+    #expect(vault.entries == original)
+    #expect(storage.data == bytes)
+    storage.failWrite = false
+    #expect(throws: OTPError.entryNotFound) { try vault.setMenuVisibility(id: UUID(), visible: false) }
+    #expect(storage.data == bytes)
+}
+
 @Test func importAndReloadPreserveIdentityAndData() throws {
     let storage = MemoryStorage()
     var vault = try TokenVault(storage: storage)

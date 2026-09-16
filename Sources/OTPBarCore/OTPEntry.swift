@@ -35,9 +35,11 @@ public struct OTPEntry: Codable, Identifiable, Equatable, Sendable {
     public let algorithm: OTPAlgorithm
     public let digits: Int
     public let period: Int
+    public var isVisibleInMenu: Bool
 
     public init(id: UUID = UUID(), name: String, account: String = "", secret: String,
-                algorithm: OTPAlgorithm = .sha1, digits: Int = 6, period: Int = 30) throws {
+                algorithm: OTPAlgorithm = .sha1, digits: Int = 6, period: Int = 30,
+                isVisibleInMenu: Bool = true) throws {
         let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else { throw OTPError.invalidName }
         guard (5...8).contains(digits), [10, 30, 60, 90].contains(period) else {
@@ -51,6 +53,7 @@ public struct OTPEntry: Codable, Identifiable, Equatable, Sendable {
         self.algorithm = algorithm
         self.digits = digits
         self.period = period
+        self.isVisibleInMenu = isVisibleInMenu
     }
 
     public init(from decoder: any Decoder) throws {
@@ -61,7 +64,8 @@ public struct OTPEntry: Codable, Identifiable, Equatable, Sendable {
                       secret: container.decode(String.self, forKey: .secret),
                       algorithm: container.decode(OTPAlgorithm.self, forKey: .algorithm),
                       digits: container.decode(Int.self, forKey: .digits),
-                      period: container.decode(Int.self, forKey: .period))
+                      period: container.decode(Int.self, forKey: .period),
+                      isVisibleInMenu: container.decodeIfPresent(Bool.self, forKey: .isVisibleInMenu) ?? true)
     }
 
     func hasSameGenerator(as other: OTPEntry) -> Bool {

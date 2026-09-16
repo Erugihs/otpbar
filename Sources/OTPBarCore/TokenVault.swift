@@ -69,6 +69,14 @@ public struct TokenVault {
         return try TOTP.generate(for: entry, at: date)
     }
 
+    public mutating func setMenuVisibility(id: UUID, visible: Bool) throws {
+        guard let index = entries.firstIndex(where: { $0.id == id }) else { throw OTPError.entryNotFound }
+        guard entries[index].isVisibleInMenu != visible else { return }
+        var next = entries
+        next[index].isVisibleInMenu = visible
+        try save(next)
+    }
+
     public mutating func remove(id: UUID) throws {
         guard entries.contains(where: { $0.id == id }) else { throw OTPError.entryNotFound }
         try save(entries.filter { $0.id != id })

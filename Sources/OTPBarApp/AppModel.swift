@@ -11,10 +11,12 @@ final class AppModel: ObservableObject {
     @Published var importVisible = false
     @Published var deletingEntry: OTPEntry?
     @Published var message: String?
+    @Published private(set) var menuMessage: String?
     private var vault: TokenVault?
     private var clipboardTimer: Timer?
     private var clipboardChange: Int?
     private let pasteboard: NSPasteboard
+    private var feedbackTimers: [Bool: Timer] = [:]
 
     init(storage: any VaultStorage = KeychainStorage(), pasteboard: NSPasteboard = .general) {
         self.pasteboard = pasteboard
@@ -27,6 +29,14 @@ final class AppModel: ObservableObject {
     }
 
     var selectedEntry: OTPEntry? { entries.first { $0.id == selectedID } }
+    var menuEntries: [OTPEntry] { entries.filter(\.isVisibleInMenu) }
+
+    func setMenuVisibility(_ entry: OTPEntry, visible: Bool) throws {
+        guard var vault else { throw OTPError.invalidVault }
+        try vault.setMenuVisibility(id: entry.id, visible: visible)
+        self.vault = vault
+        entries = vault.entries
+    }
 
     func importBackup(_ data: Data, password: String?) throws -> ImportResult {
         guard var vault else { throw OTPError.invalidVault }
@@ -40,7 +50,10 @@ final class AppModel: ObservableObject {
 
     func update(_ entry: OTPEntry) throws {
         guard var vault else { throw OTPError.invalidVault }
-        try vault.update(entry)
+        guard let current = vault.entries.first(where: { $0.id == entry.id }) else { throw OTPError.entryNotFound }
+        var updated = entry
+        updated.isVisibleInMenu = current.isVisibleInMenu
+        try vault.update(updated)
         self.vault = vault
         entries = vault.entries
         isEditing = false
@@ -56,15 +69,16 @@ final class AppModel: ObservableObject {
         message = "已从这台 Mac 删除“\(entry.name)”。"
     }
 
-    func copy(_ entry: OTPEntry) {
+    @discardableResult
+    func copy(_ entry: OTPEntry, fromMenu: Bool = false) -> Bool {
         do {
             guard let vault else { throw OTPError.invalidVault }
             let code = try vault.code(for: entry.id)
             clipboardTimer?.invalidate()
             pasteboard.clearContents()
             guard pasteboard.setString(code.value, forType: .string) else {
-                message = "无法写入剪贴板，请重试。"
-                return
+                showFeedback("无法写入剪贴板，请重试。", fromMenu: fromMenu)
+                return false
             }
             clipboardChange = pasteboard.changeCount
             let timer = Timer(timeInterval: max(0.01, code.validUntil.timeIntervalSinceNow), repeats: false) { [weak self] _ in
@@ -72,8 +86,27 @@ final class AppModel: ObservableObject {
             }
             RunLoop.main.add(timer, forMode: .common)
             clipboardTimer = timer
-            message = "已复制 \(entry.name) 的验证码。"
-        } catch { message = error.localizedDescription }
+            if fromMenu { menuMessage = nil }
+            else { showFeedback("已复制 \(entry.name) 的验证码。", fromMenu: false) }
+            return true
+        } catch {
+            showFeedback(error.localizedDescription, fromMenu: fromMenu)
+            return false
+        }
+    }
+
+    private func showFeedback(_ text: String, fromMenu: Bool) {
+        feedbackTimers[fromMenu]?.invalidate()
+        if fromMenu { menuMessage = text } else { message = text }
+        let timer = Timer(timeInterval: 2.4, repeats: false) { [weak self] _ in
+            MainActor.assumeIsolated {
+                guard let self else { return }
+                if fromMenu { if self.menuMessage == text { self.menuMessage = nil } }
+                else if self.message == text { self.message = nil }
+            }
+        }
+        RunLoop.main.add(timer, forMode: .common)
+        feedbackTimers[fromMenu] = timer
     }
 
     func clearCopiedCode() {

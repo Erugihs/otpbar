@@ -23,6 +23,46 @@ private let backup = Data("""
 {"schemaVersion":4,"services":[{"name":"Synthetic","secret":"GEZDGNBVGY3TQOJQGEZDGNBVGY3TQOJQ","otp":{"tokenType":"TOTP","algorithm":"SHA1","digits":6,"period":30}}]}
 """.utf8)
 
+@MainActor @Test func hiddenAccountsRemainEditableAndCopyableAfterReload() throws {
+    let storage = TestStorage()
+    let pasteboard = NSPasteboard.withUniqueName()
+    defer { pasteboard.releaseGlobally() }
+    let model = AppModel(storage: storage, pasteboard: pasteboard)
+    _ = try model.importBackup(backup, password: nil)
+    let entry = try #require(model.selectedEntry)
+    model.isEditing = true
+    try model.setMenuVisibility(entry, visible: false)
+    #expect(model.isEditing)
+    #expect(model.menuEntries.isEmpty)
+    #expect(model.entries.count == 1)
+    #expect(model.selectedID == entry.id)
+    try model.update(OTPEntry(id: entry.id, name: "Edited", secret: entry.secret))
+    #expect(model.menuEntries.isEmpty)
+    #expect(model.selectedEntry?.name == "Edited")
+    #expect(model.copy(entry))
+    #expect(pasteboard.string(forType: .string) != nil)
+    #expect(AppModel(storage: storage).menuEntries.isEmpty)
+    model.clearCopiedCode()
+}
+
+@MainActor @Test func menuCopyReportsSuccessWithoutSettingsFeedback() throws {
+    let pasteboard = NSPasteboard.withUniqueName()
+    defer { pasteboard.releaseGlobally() }
+    let model = AppModel(storage: TestStorage(), pasteboard: pasteboard)
+    _ = try model.importBackup(backup, password: nil)
+    let entry = try #require(model.selectedEntry)
+    model.message = nil
+    #expect(model.copy(entry, fromMenu: true))
+    #expect(model.message == nil)
+    #expect(model.menuMessage == nil)
+    try model.remove(entry)
+    let settingsMessage = model.message
+    #expect(!model.copy(entry, fromMenu: true))
+    #expect(model.menuMessage == OTPError.entryNotFound.localizedDescription)
+    #expect(model.message == settingsMessage)
+    model.clearCopiedCode()
+}
+
 @MainActor @Test func clipboardCleanupPreservesLaterWritesAndUsesCurrentEntry() throws {
     let pasteboard = NSPasteboard.withUniqueName()
     defer { pasteboard.releaseGlobally() }
